@@ -1,5 +1,6 @@
 #include <stdio.h>
-	int main(int argc, char** argv)
+#include <math.h>
+	int main()
 	{
 		double loanAmt = 0.0;
 		int years = 0;
@@ -11,23 +12,26 @@
 		scanf("%lf", &loanAmt);
 		
 		printf("Number of Years: ");
-		scanf("%lf", &years);
+		scanf("%d", &years);
 		
 		printf("%-10s %10s %10s\n", "Interest Rate", "Monthly Payment", "Total Payment");
 		
-		for(int i = 0; i == years; i++)
+		for (int k = 0; k < 25; k++)
 		{
-		for (int k = 0; k == 25; k++)
-		{
-		printf("%-10f %12f %15f", interestRate, monthlyPayment, totalPayment);
-		loanAmt
-		monthlyPayment+totalPayment;
+		
+		//rate
+		double r = (interestRate/100/12);
+		//months
+		double m = (years*12);
+		double i = (1+r);
+		//(i+r)^m
+		double n = pow(i,m);
+		
+		monthlyPayment = (loanAmt*r)*(n)/(n-1);
+		
+		totalPayment = (monthlyPayment*m);
+		printf("%-10.3f %12.2f %15.2f\n", interestRate, monthlyPayment, totalPayment);
+	
 		interestRate +=  0.125;
-		
-		
 		}
-		
-		}
-		
-		
 	}
