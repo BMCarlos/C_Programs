@@ -4,33 +4,21 @@
 	int main()
 	{
 		int vowels, consonants = 0; 
-		char ltr = ' ';
-		
 		char sentance[500];
-	
-		
-		
-		
 		printf("Enter a string: ");
-		scanf("%s", sentance);
-		int i,index,spc;
-		//char str = sentance;
-		for(i=0; sentance[i] != '\0'; ++i)
-		{
-		/*	if((sentance[index] >= 'a' && sentance[index] <= 'z') || 
-			(sentance[index] >= 'A' && sentance[index] <= 'Z'))
+		scanf("%99[^\n]",sentance);
+		int i,index,spc,k = 0;
+		while(k<=sentance[k])
 			{
-				consonants++;
-			}
-			else if ((sentance[index] = 'a') || (sentance[index] = 'e') || 				(sentance[index] = 'i') || (sentance[index] = 'o') ||
-			(sentance[index] = 'u') || (sentance[index] = 'A') || 
-			(sentance[index] = 'E') || (sentance[index] = 'I') ||
-			(sentance[index] = 'O') || (sentance[index] = 'U'))
+			if(sentance[k] == ' ')
 			{
-			vowels++;
+			spc++;
 			}
-		*/
-		if (sentance[i] == 'a' || sentance[i] == 'e' || 
+			k++;
+			}
+		while(sentance[i] != '\0')
+		{	
+			if (sentance[i] == 'a' || sentance[i] == 'e' || 
 			sentance[i] == 'i' || sentance[i] == 'o' ||
 			sentance[i] == 'u' || sentance[i] == 'A' || 
 			sentance[i] == 'E' || sentance[i] == 'I' ||
@@ -38,23 +26,13 @@
 			{
 			++vowels;
 			}	
-			else if 
-			((sentance[i] >= 'a' && sentance[i] <= 'z') || 
-			(sentance[i] >= 'A' && sentance[i] <= 'Z'))
-			{
-				++consonants;
-			}
-			else if
-			(sentance[i] == ' ');
-			{
-			++spc;
+			else {
+			consonants++;
 			}
 			
-			//i++;
+			i++;
 		}
-			//consonants = consonants - (spc + vowels); 
-		//printf("Sentance entered: %s\n", sentance);
-		printf("%s", sentance);
+			consonants = consonants - (spc-1); 
 		printf("The number of vowels is %d \n", vowels);
 		printf("The number of consonants is %d \n", consonants);
 		return 0;
